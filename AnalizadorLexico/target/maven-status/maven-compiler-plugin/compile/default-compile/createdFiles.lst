@@ -1,0 +1,7 @@
+Lexer.class
+Token.class
+AFD.class
+MathOperator.class
+MainToken.class
+Id.class
+Number.class
