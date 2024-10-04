@@ -46,7 +46,15 @@ public class Parser {
     
     public void main(){
         token = getNextToken();
-        if(ifelse()){
+       /*
+         if(ifelse()){
+            if(token.tipo.equals("EOF")){
+                System.out.println("Sintaticamente correto");
+            }else{
+                erro("EOF");
+            }
+        }*/
+        if(whileC()){
             if(token.tipo.equals("EOF")){
                 System.out.println("Sintaticamente correto");
             }else{
@@ -54,6 +62,15 @@ public class Parser {
             }
         }
     }
+    
+    public boolean whileC(){
+        if(matchL("while") && condicao() && matchL(":") && expressao()){
+            return true;
+        }
+        erro("whileC");
+        return false;
+    }
+    
     
     public boolean ifelse(){
         if(matchL("if") && condicao() && matchL("then") && expressao() && matchL("else") && expressao()){
